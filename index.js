@@ -204,7 +204,7 @@ class MelcloudPlatform {
 
 	proxyAirInfo(callback, characteristic, service, homebridgeAccessory, value, operation) {
 		if (homebridgeAccessory.airInfo != null) {
-			this.log(`Data already available for: ${homebridgeAccessory.name} - ${characteristic.displayName}`);
+			//this.log(`Data already available for: ${homebridgeAccessory.name} - ${characteristic.displayName}`);
 			operation(callback, characteristic, service, homebridgeAccessory, value);
 
 			if (this.airInfoExecutionPending.length) {
@@ -258,7 +258,7 @@ class MelcloudPlatform {
 
 				if (that.airInfoExecutionPending.length) {
 					const args = that.airInfoExecutionPending.shift();
-					that.log(`Dequeuing remote request for: ${args[3].name} - ${args[1].displayName}`);
+					//that.log(`Dequeuing remote request for: ${args[3].name} - ${args[1].displayName}`);
 					that.proxyAirInfo(...args);
 				}
 			});
