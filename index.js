@@ -209,14 +209,15 @@ class MelcloudPlatform {
 
 			if (this.airInfoExecutionPending.length) {
 				const args = this.airInfoExecutionPending.shift();
-				this.log(`Dequeuing remote request for. ${args[3].name} - ${args[1].displayName}`);
+				//Uncomment due to logfile overload
+				//this.log(`Dequeuing remote request for. ${args[3].name} - ${args[1].displayName}`);
 				this.proxyAirInfo(...args);
 			}
 
 			return;
 		}
-
-		this.log(`Getting data for: ${homebridgeAccessory.name} - ${characteristic.displayName}`);
+		//Uncomment due to logfile overload
+		//this.log(`Getting data for: ${homebridgeAccessory.name} - ${characteristic.displayName}`);
 
 		if (this.currentAirInfoExecution < 1) {
 			homebridgeAccessory.airInfoRequestSent = true;
@@ -262,7 +263,8 @@ class MelcloudPlatform {
 				}
 			});
 		} else {
-			this.log(`Queing remote request data for: ${homebridgeAccessory.name} - ${characteristic.displayName}`);
+			//Uncomment due to logfile overload
+			//this.log(`Queing remote request data for: ${homebridgeAccessory.name} - ${characteristic.displayName}`);
 			this.airInfoExecutionPending.push(arguments);
 		}
 	}
